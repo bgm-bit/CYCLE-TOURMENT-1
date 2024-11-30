@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycling Tournament</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Energetic background color */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(to right, #ff7f00, #ff6600); /* Orange gradient */
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form select,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Annual Cycling Tournament</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#medals">Medals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About the Tournament</h2>
+            <p>The Annual Cycling Tournament is a thrilling event that brings together cyclists of all ages and skill levels. Compete on scenic routes and enjoy the spirit of competition!</p>
+        </section>
+
+        <section id="schedule">
+            <h2>Schedule</h2>
+            <ul>
+                <li><strong>Day 1:</strong> Races (No medals awarded)</li>
+                <li><strong>Day 2:</strong> Medal Distribution (Gold, Silver, and Bronze Medals awarded)</li>
+            </ul>
+        </section>
+
+        <section id="registration">
+            <h2>Registration</h2>
+            <p>Register now to secure your spot in the tournament! Registration will be open from December 7th to December 10th.</p>
+            <form action="#" method="post">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                
+                <label for="villa">Villa Number:</label>
+                <input type="text" id="villa" name="villa" placeholder="Enter villa number" required>
+                
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="junior">Junior</option>
+                    <option value="amateur">Amateur</option>
+                    <option value="professional">Professional</option>
+                </select>
+                
+                <label for="registrationType">Registration Type:</label>
+                <select id="registrationType" name="registrationType" required>
+                    <option value="single">Single</option>
+                    <option value="duo">Duo</option>
+                    <option value="team">Team</option>
+                </select>
+                
+                <label for="teamName" id="teamNameLabel" style="display: none;">Team/Duo Name (Optional):</label>
+                <input type="text" id="teamName" name="teamName" placeholder="Enter your team/duo name" style="display: none;">
+                
+                <div id="duoDetails" style="display: none;">
+                    <label for="partnerName">Partner's Name (For Duo, Optional):</label>
+                    <input type="text" id="partnerName" name="partnerName" placeholder="Enter partner's name" style="display: none;">
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="medals">
+            <h2>Medals</h2>
+            <p>Medals will be awarded on **Day 2**:</p>
+            <ul>
+                <li><strong>Gold Medal</strong>: Awarded to the top racer of Day 2.</li>
+                <li><strong>Silver Medal</strong>: Awarded to the second-place racer of Day 2.</li>
+                <li><strong>Bronze Medal</strong>: Awarded to the third-place racer of Day 2.</li>
+            </ul>
+            <p>Day 1 is dedicated to races, with no medals awarded. Day 2 will feature the medal distribution ceremony with the top three winners receiving their Gold, Silver, and Bronze medals.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us:</p>
+            <p><strong>Email:</strong> <a href="mailto:abhyuday.singh2705@gmail.com">abhyuday.singh2705@gmail.com</a></p>
+            <p><strong>Villa:</strong> Villa 33</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Annual Cycling Tournament. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to toggle team name and duo fields (optional)
+        document.getElementById("registrationType").addEventListener("change", function() {
+            var registrationType = this.value;
+            var teamNameField = document.getElementById("teamName");
+            var teamNameLabel = document.getElementById("teamNameLabel");
+            var duoDetails = document.getElementById("duoDetails");
+            var partnerNameField = document.getElementById("partnerName");
+
+            // Show/Hide team name and duo fields based on selection
+            if (registrationType === "team" || registrationType === "duo") {
+                teamNameField.style.display = "block";
+                teamNameLabel.style.display = "block";
+                duoDetails.style.display = (registrationType === "duo") ? "block" : "none";
+            } else {
+                teamNameField.style.display = "none";
+                teamNameLabel.style.display = "none";
+                duoDetails.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
